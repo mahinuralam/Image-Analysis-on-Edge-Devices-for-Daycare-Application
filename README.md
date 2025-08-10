@@ -17,3 +17,6 @@ This project focuses on developing an intelligent system for daycare settings th
 - **Daycare Action Recognition**: Using MoveNet's pose embeddings with a BiLSTM model, the action recognition system demonstrates **97% accuracy** in recognizing different actions, making it an effective tool for monitoring activities and ensuring child safety.
 
 - **Dataset Creation**: The Korean children face and action recognition dataset includes diverse and challenging examples of children in daycare environments, making it ideal for training robust models in a real-world context.
+
+
+<img width="842" height="642" alt="Screenshot 2025-08-10 175924" src="https://github.com/user-attachments/assets/cd137c18-689f-4e0f-b958-30223506d6e6" />
