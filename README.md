@@ -33,3 +33,9 @@ Run notebooks from the project root so relative paths resolve correctly.
 - Face recognition accuracy: ~98% (Transformer classifier).
 - Action recognition accuracy: ~97% (BiLSTM on MoveNet keypoints).
 
+<img width="630" height="299" alt="image" src="https://github.com/user-attachments/assets/6b96c879-fa0d-41b6-b6a4-41f04b0f374f" />  <img width="629" height="646" alt="image" src="https://github.com/user-attachments/assets/35a4b57e-d918-483d-a319-e84259d402a4" />
+
+
+
+
+
