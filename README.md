@@ -1,22 +1,35 @@
-# Daycare Face and Action Recognition System
+# Image Analysis on Edge Devices for Daycare
 
-## Project Description
+## Overview
+- Edge-ready computer vision project for daycare safety.
+- Face identification: MTCNN detections + InceptionResnet embeddings, evaluated with Transformer and lightweight classifiers (~98% accuracy).
+- Action recognition: MoveNet pose keypoints + BiLSTM classifier (~97% accuracy).
 
-This project focuses on developing an intelligent system for daycare settings that recognizes both faces and actions of children. The system leverages cutting-edge deep learning models to ensure high accuracy in real-time recognition tasks.
+## Key Notebooks
+- `FaceDetection&Recognition.ipynb` – end-to-end face pipeline (data prep, detection, embeddings, classifiers).
+- `Pose_Estimation&Action_Recognition.ipynb` – pose extraction, sequence building, action model training, on-device inference.
 
-### Key Achievements:
-- **98% Accuracy in Daycare Face Recognition**: Developed a high-accuracy Transformer model for daycare face recognition using MTCNN (Multi-task Cascaded Convolutional Networks) facial embeddings. This model is capable of accurately recognizing children's faces in a daycare environment.
+## Datasets
+- `Datasets/Korean child & Pins dataset/` – labeled portraits for identity recognition.
+- `Datasets/Action dataset/` – GIFs, extracted frames, pose keypoints, and the trained `action_recognition_model.h5`.
   
-- **97% Accuracy in Daycare Action Recognition**: Implemented a BiLSTM (Bidirectional Long Short-Term Memory) model for action recognition, using MoveNet pose embeddings to detect and recognize actions performed by children in daycare. The action recognition system can effectively classify different actions like playing, running, or sitting based on pose data.
+Run notebooks from the project root so relative paths resolve correctly.
 
-- **Korean Children Face and Action Recognition Dataset**: Constructed a custom dataset specifically focused on face and action recognition for children in daycare settings. This dataset includes labeled images and videos of children performing various actions and provides a robust foundation for training and evaluating the models.
+## Quick Start
+1. Create a Python 3.10+ environment.
+2. Install core dependencies:
+	```bash
+	pip install facenet-pytorch mtcnn mediapipe tensorflow torch torchvision opencv-python tqdm
+	```
+3. Open the notebooks in Jupyter or VS Code and run cells in order. GPU support is optional but speeds up embedding extraction and model training.
 
-## Project Highlights
-- **Daycare Face Recognition**: By utilizing MTCNN facial embeddings and a Transformer-based architecture, the face recognition model achieves **98% accuracy**, offering a reliable solution for identifying children in daycare settings.
-  
-- **Daycare Action Recognition**: Using MoveNet's pose embeddings with a BiLSTM model, the action recognition system demonstrates **97% accuracy** in recognizing different actions, making it an effective tool for monitoring activities and ensuring child safety.
+## Workflow Summary
+- Mirror or regenerate processed data using the setup cells (`processed_split`, `train_detected_faces`, pose keypoints).
+- Train/evaluate face models (centroid matching, MLP, Transformer) on saved embeddings.
+- Train/evaluate action models on sliding-window pose sequences; export to `.h5` for deployment.
+- Optional cells demonstrate on-device inference and visualization.
 
-- **Dataset Creation**: The Korean children face and action recognition dataset includes diverse and challenging examples of children in daycare environments, making it ideal for training robust models in a real-world context.
+## Results
+- Face recognition accuracy: ~98% (Transformer classifier).
+- Action recognition accuracy: ~97% (BiLSTM on MoveNet keypoints).
 
-
-<img width="842" height="642" alt="Screenshot 2025-08-10 175924" src="https://github.com/user-attachments/assets/cd137c18-689f-4e0f-b958-30223506d6e6" />
